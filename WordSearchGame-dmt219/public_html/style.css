@@ -1,0 +1,54 @@
+#login{
+    padding: 10px;
+}
+
+#words{
+    overflow-x:scroll;
+    overflow-y:scroll;
+    height:600px;
+    width:600px;
+    float:left;
+}
+
+#grid{
+    overflow-x:scroll;
+    overflow-y:scroll;
+}
+
+#grid td{
+    opacity: 0.9;
+    border:1px solid black;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#grid td:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+
+
+.highlight { background-color: yellow; }
+
+#rhs{
+    height: auto;
+    width:auto;
+}
+
+#userlist {
+    width: 100px;
+    margin-top: 25px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+#userlist td {
+    width : 55px;
+}
+
+#container {
+    margin: auto;
+}

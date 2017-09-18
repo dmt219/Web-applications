@@ -1,0 +1,143 @@
+<!--
+Duc Tran
+dmt219
+-->
+
+<!DOCTYPE html>
+<html>
+    <head><title>Task Manager</title></head>
+    <body>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+
+        <table border="3">
+            <thead>
+            	<tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            	  <td style="font-weight: bold;">Task &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td style="font-weight: bold;">Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>                
+                <td style="font-weight: bold;">Due Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>                
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <form style="float: right; margin-left:500px; position: fixed; top: 0; right: 700px;"> 
+          <button style ="border-radius: 8px; margin:5px" type="button" onclick="addTask();">Add </button> 
+          <button style ="border-radius: 8px; margin:5px" type="button" onclick="deleteTask();">Delete </button> <br>
+          Description: <input type="text" id="description"/> <br>
+          Date: <input type="text" id="date" name="datedue"/><br>
+          Type:<select name="type" id="type" onchange='checkType(this.value);'> <br>
+          <option value ="Next Action">Next Action</option> 
+          <option value ="Waiting For">Waiting For </option> 
+          <option value="Talk To">Talk To </option> 
+          <option value="Future">Future</option> 
+          <option value ="Someday/Maybe">Someday/Maybe</option>
+        </select>
+        <input type="text" name="type" id="foo" style='display:none;'/>
+        </form>
+
+        <script>
+
+
+        $( document ).ready(function() {
+          $("input#date").datepicker();
+
+        });
+
+        function checkType(val){
+          var element=document.getElementById('foo');
+          if(val=='Waiting For'||val=='Talk To')
+            element.style.display='block';
+          else  
+            element.style.display='none';
+          }
+               
+            function displayList(lst) {
+              var ptable = $("tbody");
+              ptable.html("");
+              for (p in lst) {
+                var task = lst[p];
+                ptable.append("<tr><td><input type='checkbox' id='" + task.id + "'/></td><td>" + task.description + "</td><td>" + task.type + "</td><td> " + task.date+"</td></tr>");	 
+              }
+
+            }  
+
+            function deleteTask() {
+              // Retrieve all the checkboxes
+              var checkedboxes = $("input[type=checkbox]");
+              var dlist = [];
+              // Push the id onto the list only if the checkbox is checked
+              checkedboxes.each( function(index, ele) { if (ele.checked) dlist.push($(ele).prop("id")); });
+              $.ajax(
+                "http://localhost:3000/delete",
+                {
+                  type: "POST",
+                  processData: true,
+                  data: { xlist:dlist },
+                  dataType: "json",
+                  success: function (result) {
+                      displayList(result);
+                  },
+                  error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Error: " + jqXHR.responseText);
+                    alert("Error: " + textStatus);
+                    alert("Error: " + errorThrown);
+                  }
+                }
+              );
+            }
+            
+            function addTask() {
+              $.ajax(
+                "http://localhost:3000/add",
+                {
+                  type: "POST",
+                  processData: true,
+                  data: { description: $("#description").val(),type:$("#type").val() +" "+ $("#foo").val(), date: $("#date").val()},
+                  dataType: "json",
+                  success: function (result) {
+                    displayList(result);
+                  },
+                  error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Error: " + jqXHR.responseText);
+                    alert("Error: " + textStatus);
+                    alert("Error: " + errorThrown);
+                  }
+                }
+              );
+              // Blank out the form fields
+              $("#description").val("");
+              $("#date").val("");
+              $("#foo").val("");
+              $('#type').val('Next Action');
+              var element=document.getElementById('foo');
+              element.style.display='none';
+            }
+
+            // Load any initial tasks from the server
+            $(function() {
+               $.ajax(
+                 "http://localhost:3000/load",
+                 {
+                   type: "GET",
+                   processData: false,
+                   dataType: "json",
+                   success: function (result) {
+                     displayList(result);
+                   },
+                   error: function (jqXHR, textStatus, errorThrown) {
+                     alert("Error: " + jqXHR.responseText);
+                     alert("Error: " + textStatus);
+                     alert("Error: " + errorThrown);
+                   }
+                 }
+               );
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>WordSearchGame-dmt219</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet"/>
+
+    </head>
+    <body>
+        <div id="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>Welcome to Word Search, <span id="lname"></span></h1>
+                    
+                </div>
+                <span id="category" ></span>
+                <div class="col-md-4">
+                    <form>
+                        Register: <input type="text" name="username" id="username"/>
+                        <input type="button" value="Login" id="login"/>
+                    </form> 
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="words">
+                        <table id="grid">
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="rhs">
+                        <p>Command</p>
+                            <input type="button" id="submit" value="Submit"/>
+                        <div id="userlist">
+                            <table>
+                                <thead>
+                                    <tr><td>Name</td><td>Score</td><td></tr>
+                                </thead>
+                                <tbody>                        
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>                     
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
+        <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>

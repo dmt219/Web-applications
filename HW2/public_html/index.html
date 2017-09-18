@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="calculator.js"></script>
+        <link href="CalculatorCss.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <form name ="Calculator">
+            <table border="1">
+                <!--<tr>
+                    <td colspan="3">
+                        <input ID="display" type="text" name ="display" placeholder="0"> 
+                    </td>
+                    <td>    <input class="operation" type="button" name="clear" value="C" onclick="Calculator.display.value=''" /> </td>
+                </tr>
+                <tr>                  
+                    <td>    <input class="number" type="button" name="one" value="1" onclick="Calculator.display.value+='1'" /> </td>
+                    <td>    <input class="number" type="button" name="two" value="2" onclick="Calculator.display.value+='2'" /> </td>
+                    <td>    <input class="number" type="button" name="three" value="3" onclick="Calculator.display.value+='3'" /></td>
+                    <td>    <input class="operation" type="button" name="plus" value="+" onclick="Calculator.display.value+='+'" /></td>
+                </tr>
+                
+                <tr>                  
+                    <td>    <input class="number" type="button" name="four" value="4" onclick="Calculator.display.value+='4'" /> </td>
+                    <td>    <input class="number" type="button" name="five" value="5" onclick="Calculator.display.value+='5'" /> </td>
+                    <td>    <input class="number" type="button" name="six" value="6" onclick="Calculator.display.value+='6'" /></td>
+                    <td>    <input class="operation" type="button" name="minus" value="-" onclick="Calculator.display.value+='-'" /></td>
+                </tr>
+                
+                <tr>                  
+                    <td>    <input class="number" type="button" name="seven" value="7" onclick="Calculator.display.value+='7'" /> </td>
+                    <td>    <input class="number" type="button" name="eight" value="8" onclick="Calculator.display.value+='8'" /> </td>
+                    <td>    <input class="number" type="button" name="nine" value="9" onclick="Calculator.display.value+='9'" /></td>
+                    <td>    <input class="operation" type="button" name="*" value="*" onclick="Calculator.display.value+='*'" /></td>
+                </tr>
+                
+                <tr>                  
+                    <td>    <input class="number" type="button" name="zero" value="0" onclick="Calculator.display.value+='0'" /> </td>
+                    <td>    <input class="operation" type="button" name="dot" value="." onclick="Decimal()" /> </td>
+                    <td>    <input class="operation" type="button" name="equal" value="PUSH" onclick="Calculator.display.value=eval(Calculator.display.value)" /></td>
+                    <td>    <input class="operation" type="button" name="divide" value="/" onclick="Calculator.display.value+='/'" /></td>
+                </tr>
+                -->
+                <tr>
+                    <td colspan="3">
+                        <input type="text"  ID="display" placeholder="0" readonly > 
+                    </td>
+                    <td>    <input class="operation" type="button" name="clear" value="C" onclick="resetDisplay()" /> </td>
+                </tr>
+                <tr>                  
+                    <td>    <input type="button" class="number" name="one" value="1" onclick="stackAdd('1')" /> </td>
+                    <td>    <input class="number" type="button" name="two" value="2" onclick="stackAdd('2')" /> </td>
+                    <td>    <input class="number" type="button" name="three" value="3" onclick="stackAdd('3')" /></td>
+                    <td>    <input class="operation" type="button" name="plus" value="+" onclick="setOperation('add')" /></td>
+                </tr>
+                
+                <tr>                  
+                    <td>    <input class="number" type="button" name="four" value="4" onclick="stackAdd('4')" /> </td>
+                    <td>    <input class="number" type="button" name="five" value="5" onclick="stackAdd('5')" /> </td>
+                    <td>    <input class="number" type="button" name="six" value="6" onclick="stackAdd('6')" /></td>
+                    <td>    <input class="operation" type="button" name="minus" value="-" onclick="setOperation('minus')" /></td>
+                </tr>
+                
+                <tr>                  
+                    <td>    <input class="number" type="button" name="seven" value="7" onclick="stackAdd('7')" /> </td>
+                    <td>    <input class="number" type="button" name="eight" value="8" onclick="stackAdd('8')" /> </td>
+                    <td>    <input class="number" type="button" name="nine" value="9" onclick="stackAdd('9')" /></td>
+                    <td>    <input class="operation" type="button" name="*" value="*" onclick="setOperation('multiply')" /></td>
+                </tr>
+                
+                <tr>                  
+                    <td>    <input class="number" type="button" name="zero" value="0" onclick="stackAdd('0')" /> </td>
+                    <td>    <input class="operation" type="button" name="dot" value="." onclick="Decimal()" /> </td>
+                    <td>    <input class="operation" type="button" name="equal" value="PUSH" onclick="push()" /></td>
+                    <td>    <input class="operation" type="button" name="divide" value="/" onclick="setOperation('divide')" /></td>
+                </tr>
+                
+                
+
+            </table>
+        </form>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+Duc Tran
+dmt219
+Final Project: Hangman Game
+-->
+<html>
+    <head>
+        <title>Hangman Game-dmt219</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    </head>
+    <body>
+        <div id="container">
+            <div class ="intro"> 
+            <h1> Welcome to Hangman Game </h1>
+            </div>
+            <div class ="hints">
+                <p>Click here for a hint</p>
+                <button id="suggestion" >Hint</button>
+                <p id="hint" style='visibility:hidden'>A cartoon about a cowboy doll and a spaceman figure</p>
+            </div>
+            <div class ="lives">
+                <p style="text-align: center;" id='live'></p>
+            </div>
+            <div id ="grid">
+            </div>
+            <div id="word">
+                <button id="T_1" >_</button>
+                <button id="O_1" >_</button>
+                <button id="Y_1" >_</button>
+                <button id="space" style="visibility:hidden" ></button>
+                <button id="S" >_</button>
+                <button id="T_2" >_</button>
+                <button id="O_2" >_</button>
+                <button id="R">_</button>
+                <button id="Y_2">_</button>
+            </div>
+            <div id="hangman">
+                <img id ='hang' src="img0.png" alt="hangman">
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+        <script src="scripts.js"></script>
+    </body>
+</html>

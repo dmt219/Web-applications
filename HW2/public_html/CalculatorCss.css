@@ -1,0 +1,20 @@
+        #display{
+            text-align: right;
+            width:100%;
+        }
+        
+        td{
+            width:50px;
+        }
+        
+        .number  {
+            color:red;  
+            width: 100%;
+        }
+        .operation{
+            color:black;
+            width:100%;
+        }
+
+
+            

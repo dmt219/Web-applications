@@ -1,0 +1,96 @@
+body{
+    background: #141E30;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 32px;
+    color: #FFF;
+    margin:0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    align:center;
+    text-align:center;
+    padding:10px;
+}
+
+#hangman{
+    margin:0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    align:center;
+    text-align:center;
+}
+
+
+
+#hangman img{
+    max-width:70%;
+    max-height:70%;
+}
+
+
+p{
+    color: AliceBlue;   
+    font-family:Georgia,serif;
+    font-size: 20px;
+    font-weight: 100;
+    margin:0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    align:center;
+    text-align:center;
+    padding:10px
+}
+
+.hints{
+   margin:0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    align:center;
+    text-align:center;
+}
+
+#grid{
+    margin:0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    align:center;
+    text-align:center;
+}
+
+#grid button{
+    opacity: 0.9;
+    border:1px solid black;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    background-color:white;
+}
+#word{
+    margin:0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    align:center;
+    text-align:center;
+}
+
+#word button{
+    opacity: 0.9;
+    border:1px solid black;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#grid button:hover {
+  background-color: greenyellow;
+  cursor: pointer;
+}
+
+#container {
+    margin: auto;
+}
